@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <?php
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
@@ -27,6 +28,16 @@
     <?php 
     foreach($pdo->query('select * from article') as $row){
         echo $row['id'];
+=======
+   <?php 
+   $pdo = new PDO('mysql:host=s-cdbr-east-02.cleardb.com;dbname=heroku_69d7ae0707fa573;',
+   'b28e163aad61de','f6c8df4'
+    );
+    foreach($pdo->query('select * from article') as $row){
+        echo '<p>';
+        echo $row['id'];
+        echo '</p>';
+>>>>>>> a82501825cfe9a01bdc7f5a6cb20519b8ac89230
     }
     ?>
 </body>
