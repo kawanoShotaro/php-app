@@ -6,15 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-   <?php 
-   $pdo = new PDO('mysql:host=s-cdbr-east-02.cleardb.com;dbname=heroku_69d7ae0707fa573;',
-   'b28e163aad61de','f6c8df4'
-    );
-    foreach($pdo->query('select * from article') as $row){
-        echo '<p>';
-        echo $row['id'];
-        echo '</p>';
-    }
-    ?>
+    <?php
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"], 1);
+
+    $pdo = new PDO(
+    'mysql:host=' . $server . ';dbname=' . $db . ';charset=utf8mb4',
+     $username,
+     $password,
+    [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
+     ]
+     ?>
 </body>
 </html>
