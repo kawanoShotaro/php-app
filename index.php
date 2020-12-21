@@ -22,7 +22,12 @@
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
-     ]
+    ]);
      ?>
+    <?php 
+    foreach($pdo->query('select * from article') as $row){
+        echo $row['id'];
+    }
+    ?>
 </body>
 </html>
