@@ -1,0 +1,4 @@
+user: b28e163aad61de
+pass: f6c8df4a
+hostname: s-cdbr-east-02.cleardb.com
+database name: heroku_69d7ae0707fa573
